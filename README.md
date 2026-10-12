@@ -36,29 +36,6 @@ portfolio/
 ├── README.md           # Project documentation
 └── Greg Tomco-resume.pdf  # Optional resume file for download button
 ```
-
-## How to Run
-
-Because this is a static website, there is no package installation required.
-
-### Option 1: Open directly
-
-- Open `index.html` in your browser.
-
-### Option 2: Run a local web server
-
-From the project folder, run:
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
 ## Customization
 
 To personalize the portfolio for your own use, update the following in `index.html`:
