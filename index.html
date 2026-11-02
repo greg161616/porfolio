@@ -362,10 +362,13 @@ section{padding:110px 0;position:relative;z-index:1;scroll-margin-top:84px}
   .project-layout{grid-template-columns:1fr}
   .project-gallery{border-left:0;border-top:1px solid var(--border);padding:.9rem}
   .project-gallery-stage,.project-gallery-main,.project-gallery-main img{min-height:230px}
+  .project-gallery-controls button{width:44px;height:44px}
   .project-modal .modal-body{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 108px;min-height:0}
   .project-modal-image-wrap{min-height:0;height:100%}
   .project-modal-image{max-height:calc(100dvh - 245px)}
   .project-modal-thumbs{grid-template-columns:repeat(auto-fill,minmax(64px,1fr));grid-auto-flow:column;grid-auto-columns:64px;max-height:none;overflow-x:auto;overflow-y:hidden}
+  .project-modal-thumb{scroll-snap-align:start}
+  .project-modal-thumbs{scroll-snap-type:x proximity}
 }
 .project-pills{
   display:flex;flex-wrap:wrap;align-items:flex-end;gap:.35rem;margin:0;
@@ -569,7 +572,7 @@ footer{
 .reveal.in{opacity:1;transform:none}
 
 @media (max-width:991.98px){
-  section{padding:82px 0}
+  section{padding:clamp(4.5rem,9vw,5.125rem) 0}
   .hero{padding:120px 0 80px;min-height:auto}
   .scroll-hint{display:none}
   #glow{display:none}
@@ -578,8 +581,47 @@ footer{
     border-radius:16px;margin-top:.7rem;padding:1rem;
   }
 }
+@media (max-width:767.98px){
+  .project-body{padding:1.2rem}
+  .project-pills{gap:.25rem;padding:.45rem .45rem 0}
+  .project-pills .nav-link{padding:.65rem .85rem!important}
+  .contact-card{min-height:76px;padding:1rem 1.1rem}
+  footer{padding:1.75rem 0}
+}
 @media (max-width:575.98px){
-  #skills{padding:64px 0}
+  section{padding:3.75rem 0}
+  #home.hero{padding:108px 0 54px}
+  #skills{padding:3.5rem 0}
+  .sec-label{font-size:.66rem;letter-spacing:.17em;gap:.5rem}
+  .sec-label::before{width:24px}
+  .sec-title{font-size:clamp(1.7rem,8vw,2.2rem)}
+  .sec-sub{font-size:.9rem;line-height:1.7}
+  .hero-eyebrow{font-size:.72rem;letter-spacing:.1em;margin-bottom:1.1rem}
+  .hero h1{font-size:clamp(2.55rem,12vw,3.8rem)}
+  .hero-role{font-size:.85rem;line-height:1.6;min-height:2.7em;margin-bottom:1rem}
+  .hero-desc{font-size:.9rem;line-height:1.7;margin-bottom:1.5rem}
+  .hero-actions{width:100%}
+  .hero-actions .btn{width:100%;min-height:48px}
+  .hero-meta{gap:.8rem;margin-top:1.8rem;padding-top:1.2rem}
+  .hero-meta div{width:100%;align-items:flex-start;font-size:.78rem}
+  .skill-card{min-height:116px}
+  .skill-card summary{min-height:100%;gap:.6rem}
+  .skill-card .skill-title{overflow-wrap:anywhere}
+  .tl-org{line-height:1.6;overflow-wrap:anywhere}
+  .tl-list li{font-size:.83rem;line-height:1.65}
+  .project-pills .nav-link{flex:1;min-width:0;padding:.65rem .35rem!important;font-size:.7rem;text-align:center}
+  .project-gallery{padding:.7rem}
+  .project-gallery-stage,.project-gallery-main,.project-gallery-main img{min-height:200px}
+  .project-card .badge-tag{font-size:.65rem;padding:.32rem .55rem}
+  .project-body h3{font-size:1.3rem!important}
+  .cert{padding:1rem}
+  .contact-card{gap:.8rem;padding:.95rem}
+  .contact-card strong{font-size:.82rem}
+  .contact-card i{font-size:1.1rem}
+  .danger-video-modal .modal-header{padding:.75rem 1rem!important}
+  .danger-video-modal .modal-title{font-size:1rem!important}
+  .danger-video-prompt{bottom:max(1rem,env(safe-area-inset-bottom));padding:1rem}
+  #toTop{right:14px;bottom:max(14px,env(safe-area-inset-bottom));width:44px;height:44px}
   .skill-card{padding:.9rem}
   .skill-card .skill-ico{width:34px;height:34px;border-radius:10px;font-size:1rem;margin:0}
   .skill-card summary{align-items:flex-start;gap:.55rem;flex-direction:column}
@@ -644,7 +686,7 @@ footer{
           networking, security, and automation through CCNA coursework. An adaptable
           problem-solver ready to build, secure, and optimize IT infrastructure.
         </p>
-        <div class="d-flex flex-wrap gap-3 reveal" style="transition-delay:.32s">
+        <div class="d-grid d-sm-flex flex-wrap gap-3 hero-actions reveal" style="transition-delay:.32s">
           <a href="#projects" class="btn btn-accent">View My Work <i class="bi bi-arrow-right ms-1"></i></a>
           <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#resumeModal">
             <i class="bi bi-file-earmark-person me-1"></i> View Résumé
